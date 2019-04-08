@@ -1,6 +1,8 @@
 ﻿Public Class Form1
 
-
+    Private a As Double
+    Private b As Single
+    Private c As Single
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         TextBox1.Text = TextBox1.Text + "7"
 
@@ -65,6 +67,55 @@
 
 
 
+        End If
+    End Sub
+
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
+        c = 1
+        If (TextBox1.Text = "") Then
+            a = Val(TextBox1.Text)
+            TextBox1.Text = ""
+        Else
+            a = a + Val(TextBox1.Text)
+            TextBox1.Text = ""
+
+
+        End If
+
+    End Sub
+
+    Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        c = 2
+        a = Val(TextBox1.Text)
+        TextBox1.Text = ""
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        c = 3
+        a = Val(TextBox1.Text)
+        TextBox1.Text = ""
+    End Sub
+
+    Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
+        c = 4
+        a = Val(TextBox1.Text)
+        TextBox1.Text = ""
+    End Sub
+
+    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
+        b = Val(TextBox1.Text)
+
+        If c = 1 Then
+            TextBox1.Text = a + b
+
+        ElseIf c = 2 Then
+            TextBox1.Text = a - b
+        ElseIf c = 3 Then
+            TextBox1.Text = a * b
+        ElseIf c = 4 Then
+            TextBox1.Text = a / b
+        Else
+            TextBox1.Text = "INVALID"
         End If
     End Sub
 End Class
