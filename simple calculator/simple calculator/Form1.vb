@@ -3,6 +3,8 @@
     Private a As Double
     Private b As Single
     Private c As Single
+    Private k As Single
+    Private g As Double
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         TextBox1.Text = TextBox1.Text + "7"
 
@@ -51,7 +53,9 @@
     Private Sub Button17_Click(sender As Object, e As EventArgs) Handles Button17.Click
         TextBox1.Text = ""
         RadioButton1.Checked = False
-
+        k = 0
+        a = 0
+        g = 1
 
     End Sub
 
@@ -76,8 +80,14 @@
             a = Val(TextBox1.Text)
             TextBox1.Text = ""
         Else
-            a = a + Val(TextBox1.Text)
-            TextBox1.Text = ""
+            If k = 0 Then
+                a = a + Val(TextBox1.Text)
+                TextBox1.Text = ""
+            Else
+                a = Val(TextBox1.Text)
+                k = 0
+                TextBox1.Text = ""
+            End If
 
 
         End If
@@ -86,20 +96,56 @@
 
     Private Sub Button11_Click(sender As Object, e As EventArgs) Handles Button11.Click
         c = 2
-        a = Val(TextBox1.Text)
-        TextBox1.Text = ""
+        If (TextBox1.Text = "") Then
+            a = Val(TextBox1.Text)
+            TextBox1.Text = ""
+        Else
+            If k = 0 Then
+                a = a - Val(TextBox1.Text)
+                TextBox1.Text = ""
+            Else
+                a = Val(TextBox1.Text)
+                k = 0
+                TextBox1.Text = ""
+            End If
+        End If
+
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
         c = 3
-        a = Val(TextBox1.Text)
-        TextBox1.Text = ""
+        If (TextBox1.Text = "") Then
+            g = Val(TextBox1.Text)
+            TextBox1.Text = ""
+        Else
+            If k = 0 Then
+                g = g * Val(TextBox1.Text)
+                TextBox1.Text = ""
+            Else
+                g = Val(TextBox1.Text)
+                k = 0
+                TextBox1.Text = ""
+            End If
+        End If
+
     End Sub
 
     Private Sub Button15_Click(sender As Object, e As EventArgs) Handles Button15.Click
         c = 4
-        a = Val(TextBox1.Text)
-        TextBox1.Text = ""
+        If (TextBox1.Text = "") Then
+            g = Val(TextBox1.Text)
+            TextBox1.Text = ""
+        Else
+            If k = 0 Then
+                g = g / Val(TextBox1.Text)
+                TextBox1.Text = ""
+            Else
+                g = Val(TextBox1.Text)
+                k = 0
+                TextBox1.Text = ""
+
+            End If
+        End If
     End Sub
 
     Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
@@ -107,13 +153,16 @@
 
         If c = 1 Then
             TextBox1.Text = a + b
-
+            k = 1
         ElseIf c = 2 Then
             TextBox1.Text = a - b
+            k = 1
         ElseIf c = 3 Then
-            TextBox1.Text = a * b
+            TextBox1.Text = g * b
+            k = 1
         ElseIf c = 4 Then
-            TextBox1.Text = a / b
+            TextBox1.Text = g / b
+            k = 1
         Else
             TextBox1.Text = "INVALID"
         End If
